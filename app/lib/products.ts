@@ -26,6 +26,15 @@ export interface Product {
   createdAt: string
 }
 
+export interface Artist {
+  id: string
+  name: string
+  bio?: string
+  imageUrl?: string
+  website?: string
+  products?: string[] // Array of product IDs
+}
+
 const products: Product[] = [
   {
     id: '1',
@@ -79,6 +88,40 @@ const products: Product[] = [
   // Add more products as needed
 ]
 
+const artists: Artist[] = [
+  {
+    id: 'jane-doe',
+    name: 'Jane Doe',
+    bio: 'Contemporary artist specializing in abstract paintings',
+    imageUrl: '/images/artists/jane-doe.jpg',
+    website: 'https://janedoe.com',
+    products: ['1']
+  },
+  {
+    id: 'john-smith',
+    name: 'John Smith',
+    bio: 'Digital artist exploring futuristic themes',
+    imageUrl: '/images/artists/john-smith.jpg',
+    website: 'https://johnsmith.com',
+    products: ['2']
+  },
+  {
+    id: 'emma-wilson',
+    name: 'Emma Wilson',
+    bio: 'Furniture designer with a focus on modern aesthetics',
+    imageUrl: '/images/artists/emma-wilson.jpg',
+    products: ['3']
+  },
+  {
+    id: 'maria-cruz',
+    name: 'Maria Cruz',
+    bio: 'Jewelry designer specializing in crystal and silver pieces',
+    imageUrl: '/images/artists/maria-cruz.jpg',
+    website: 'https://mariacruz.com',
+    products: ['4']
+  }
+]
+
 export async function getProducts(): Promise<Product[]> {
   // Simulate API call
   return Promise.resolve(products)
@@ -87,4 +130,13 @@ export async function getProducts(): Promise<Product[]> {
 export async function getProduct(id: string): Promise<Product | null> {
   const product = products.find(p => p.id === id)
   return Promise.resolve(product || null)
+}
+
+export async function getArtists(): Promise<Artist[]> {
+  return Promise.resolve(artists)
+}
+
+export async function getArtist(id: string): Promise<Artist | null> {
+  const artist = artists.find(a => a.id === id)
+  return Promise.resolve(artist || null)
 } 
