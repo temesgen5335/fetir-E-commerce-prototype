@@ -110,7 +110,26 @@ const artists: Artist[] = [
 ]
 
 export async function getArtists(): Promise<Artist[]> {
-  return Promise.resolve(artists)
+  // Mock data - replace with actual API call or database query
+  return [
+    {
+      id: '1',
+      name: 'Sarah Johnson',
+      imageUrl: '/images/artists/sarah-johnson.jpg',
+      location: 'New York, USA',
+      specialties: ['Oil Painting', 'Portrait', 'Landscape'],
+      bio: 'Contemporary artist specializing in oil paintings',
+    },
+    {
+      id: '2',
+      name: 'David Chen',
+      imageUrl: '/images/artists/david-chen.jpg',
+      location: 'Vancouver, Canada',
+      specialties: ['Sculpture', 'Installation', 'Mixed Media'],
+      bio: 'Experimental sculptor working with sustainable materials',
+    },
+    // Add more artists as needed
+  ]
 }
 
 export async function getFeaturedArtists(): Promise<Artist[]> {
